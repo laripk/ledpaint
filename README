@@ -1,0 +1,30 @@
+This is LED Paint. 
+
+It is a token project with which I will explore various tools for creating a particular GUI interface I want to make.
+
+The premise is that the user wants to create a (static) pattern for an LED display. Sometimes the user wants to lay out the LEDs on a grid visually, and sometimes s/he wants to describe the layout in words sequentially describing the LEDs' state across each row. Any time the user updates one version of the pattern, the other should automatically update to match.
+
+We're using simple red/green LEDS, which have the following four possible states: off, red, green (grn), yellow (ylw). A cell in the grid may also be empty (no LED). We like to use the short forms of the words in our patterns, and if there are more than one of a kind in a row, we like to just say the word once followed by its count.
+
+
+A simple example pattern:
+   In the grid:
+---------------------
+| o | o | R | o | o |  5
+---------------------
+| o | o | G | o | o |  4
+---------------------
+| R | G | Y | G | R |  3
+---------------------
+| o | o | G | o | o |  2
+---------------------
+| o | o | R | o | o |  1
+---------------------
+   In words:
+1: off 2, red, off 2
+2: off 2, grn, off 2
+3: red, grn, ylw, grn, red
+4: off 2, grn, off 2
+5: off 2, red, off 2
+
+
