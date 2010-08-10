@@ -19,28 +19,24 @@ class MainWindow < Wx::Frame
       @sizer = Wx::VBoxSizer.new
       @mainpane = self
       @mainpane.sizer = @sizer
-      gridpane
-      textpane
+      gridpane(@mainpane)
+      textpane(@mainpane)
     end
     
-    def gridpane
-      @grd = Wx::TextCtrl.new(
-          @mainpane, 
-          :value => 'Type in here',
-          :style => Wx::TE_MULTILINE
-        )# Wx::Grid.new( @mainpane, -1, Wx::DEFAULT_POSITION, Wx::DEFAULT_SIZE )
-      # grd.create_grid( 24, 24, Wx::Grid::GridSelectCells ) #creates a built-in underlying table. replace with Grid#set_table to hook up to model
-      @sizer.add @grd, 2, Wx::GROW|Wx::ALL, 2
+    def gridpane(panel)
+      @grd = Wx::Grid.new(panel, -1)
+      @grd.create_grid(12, 12) #creates a built-in underlying table. replace with Grid#set_table to hook up to model
+      panel.sizer.add @grd, 2, Wx::GROW|Wx::ALL, 2
 
     end
     
-    def textpane
+    def textpane(panel)
       @txt = Wx::TextCtrl.new(
-            @mainpane, 
+            panel, 
             :value => 'Type in here',
             :style => Wx::TE_MULTILINE
           )
-      @sizer.add @txt, 1, Wx::GROW|Wx::ALL, 2
+      panel.sizer.add @txt, 1, Wx::GROW|Wx::ALL, 2
     end
 
     def setup_events
